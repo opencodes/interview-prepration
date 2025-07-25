@@ -73,3 +73,12 @@ Design Facebook Posts System
 | 10 Million  | 115 QPS           | 1.15K QPS  | 11.5K QPS   |
 | 100 Million | 1.15K QPS         | 11.5K QPS  | 115K QPS    |
 | 1 Billion   | 11.5K QPS         | 115K QPS   | 1.15M QPS   |
+
+
+✅ Billion ↔ Million ↔ Thousand Conversion Sheet
+
+| Unit               | Value         | In Millions | In Thousands |
+| ------------------ | ------------- | ----------- | ------------ |
+| **1 Billion** (B)  | 1,000,000,000 | 1,000 M     | 1,000,000 K  |
+| **1 Million** (M)  | 1,000,000     | 1 M         | 1,000 K      |
+| **1 Thousand** (K) | 1,000         | 0.001 M     | 1 K          |
