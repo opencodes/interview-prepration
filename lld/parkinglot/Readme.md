@@ -1,3 +1,3 @@
-Parking Lot
-- id:int
+Classes
+- ParkingLot
 - 
