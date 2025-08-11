@@ -1,6 +1,6 @@
 package com.rkjha.parkinglot.service;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 public class Entrance {
     String id;
@@ -13,9 +13,8 @@ public class Entrance {
         return id;
     }
 
-
-    public ParkingTicket getTicket(Vehicle vehicle) {
-        ParkingTicket ticket = new ParkingTicket(id, new Date(0), vehicle, this);
+    public ParkingTicket getTicket(Vehicle vehicle, String ticketId) {
+        ParkingTicket ticket = new ParkingTicket(ticketId, LocalDateTime.now(), vehicle, this);
         // ticket.setVehicle(vehicle);
         // vehicle.assignTicket(ticket);
         return ticket;

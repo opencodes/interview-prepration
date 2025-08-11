@@ -9,22 +9,22 @@ public class DisplayBoard {
     String id;
     Map<String, List<ParkingSpot>> parkingSpot;
 
-
     public DisplayBoard(String id) {
         this.id = id;
         this.parkingSpot = new HashMap<>();
     }
+
     public String getId() {
         return id;
     }
-    
 
-    public void addParkingSpot(List<ParkingSpot> parkingSpots, String vehicleType ) {
+    public void addParkingSpot(List<ParkingSpot> parkingSpots, String vehicleType) {
         this.parkingSpot.put(vehicleType, parkingSpots);
     }
 
     public Map<String, List<ParkingSpot>> showFreeSpot() {
-        //iterate through parkingSpot and return the list of free parking spots, unassigned vehicles
+        // iterate through parkingSpot and return the list of free parking spots,
+        // unassigned vehicles
         Map<String, List<ParkingSpot>> freeSpots = new HashMap<>();
         for (Map.Entry<String, List<ParkingSpot>> entry : parkingSpot.entrySet()) {
             String vehicleType = entry.getKey();

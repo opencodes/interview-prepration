@@ -1,13 +1,12 @@
 package com.rkjha.parkinglot.service;
 
-import java.sql.LocalDateTime;
 import java.time.LocalDateTime;
 
 import com.rkjha.parkinglot.model.enums.TicketStatus;
 
 public class ParkingTicket {
     String id;
-    //datetime for entry and exit
+    // datetime for entry and exit
     LocalDateTime entryDate;
     LocalDateTime exiDate;
     double amount;
@@ -96,5 +95,5 @@ public class ParkingTicket {
     public void setExit(Exit exit) {
         this.exit = exit;
     }
-    
+
 }

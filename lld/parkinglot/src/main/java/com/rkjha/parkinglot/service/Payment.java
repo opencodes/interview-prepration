@@ -1,16 +1,19 @@
 package com.rkjha.parkinglot.service;
 
-import java.sql.Date;
+import java.util.*;
 
 import com.rkjha.parkinglot.model.enums.PaymentStatus;
 
-abstract class Payment {
-    double amount;
-    PaymentStatus status;
-    Date timestamp;
+public abstract class Payment {
+    protected double amount;
+    protected PaymentStatus status;
+    protected Date timestamp;
 
-    public boolean initiateTransaction() {
-        // Logic to initiate payment transaction
-        return false;
+    public Payment(double amt) {
+        this.amount = amt;
+        this.status = PaymentStatus.PENDING;
+        this.timestamp = new Date();
     }
+
+    public abstract boolean initiateTransaction();
 }

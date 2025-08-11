@@ -9,15 +9,17 @@ public class ParkingLot {
     String address;
     ParkingRate rate;
     Map<String, Entrance> entrances = new HashMap<>();
-    Map<String,Exit> exits = new HashMap<>();
+    Map<String, Exit> exits = new HashMap<>();
     Map<String, ParkingSpot> parkingSpots = new HashMap<>();
     Map<String, ParkingTicket> parkingTickets = new HashMap<>();
     Map<String, DisplayBoard> displayBoards = new HashMap<>();
 
     private static ParkingLot instance;
+
     private ParkingLot() {
         // Private constructor to prevent instantiation
     }
+
     public static ParkingLot getInstance() {
         if (instance == null) {
             instance = new ParkingLot();
@@ -25,7 +27,7 @@ public class ParkingLot {
         return instance;
     }
 
-    public  ParkingTicket getParkingTicket(String ticketId) {
+    public ParkingTicket getParkingTicket(String ticketId) {
         return this.parkingTickets.get(ticketId);
     }
 
@@ -81,6 +83,10 @@ public class ParkingLot {
         return exits;
     }
 
+    public Exit getExit(String id) {
+        return this.exits.get(id);
+    }
+
     public void addExit(Exit exit) {
         this.exits.put(String.valueOf(exit.id), exit);
     }
@@ -105,10 +111,8 @@ public class ParkingLot {
         return displayBoards;
     }
 
-    public void addDisplayBoard(  DisplayBoard displayBoard) {
-        this.displayBoards.put( displayBoard.id, displayBoard);
+    public void addDisplayBoard(DisplayBoard displayBoard) {
+        this.displayBoards.put(displayBoard.id, displayBoard);
     }
- 
- 
-    
+
 }

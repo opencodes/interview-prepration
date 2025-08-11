@@ -1,5 +1,7 @@
 package com.rkjha.parkinglot.service;
 
+import java.time.Duration;
+
 public class ParkingRate {
     private double hourlyRate;
     private double fixedRate;
@@ -11,10 +13,13 @@ public class ParkingRate {
         this.fixedRateForHour = fixedRateForHour;
     }
 
-    public double calculate(Vehicle v) {
-        int hrs = (int)Math.ceil(v.getTicket().getExiDate().getTime() - v.getTicket().getEntryDate().getTime()) / (1000 * 60 * 60);
+    public double calculate(ParkingTicket parkingTicket) {
+        // Method 1: Duration (good for hours/minutes/seconds)
+        Duration duration = Duration.between(parkingTicket.entryDate, parkingTicket.exiDate);
+        long hrs = duration.toHours();
         double fee = this.fixedRate;
-        if (hrs >= this.fixedRateForHour) fee += (hrs - this.fixedRateForHour) * this.hourlyRate;
+        if (hrs >= this.fixedRateForHour)
+            fee += (hrs - this.fixedRateForHour) * this.hourlyRate;
         return fee;
     }
 
@@ -42,6 +47,4 @@ public class ParkingRate {
         this.fixedRateForHour = fixedRateForHour;
     }
 
-    
-     
 }

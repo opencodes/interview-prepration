@@ -7,13 +7,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rkjha.parkinglot.service.Car;
 import com.rkjha.parkinglot.service.DisplayBoard;
 import com.rkjha.parkinglot.service.Entrance;
 import com.rkjha.parkinglot.service.Exit;
 import com.rkjha.parkinglot.service.ParkingLot;
 import com.rkjha.parkinglot.service.ParkingRate;
 import com.rkjha.parkinglot.service.ParkingSpot;
+import com.rkjha.parkinglot.service.ParkingTicket;
+import com.rkjha.parkinglot.service.*;
 
 @RestController
 @RequestMapping("/parking-lot")
@@ -35,11 +36,13 @@ public class ParkingLotController {
             parkingLot.addExit(new Exit("EXT1"));
             parkingLot.addDisplayBoard(new DisplayBoard("DB1"));
 
-
-
             // add vehicle entry and exit for testing
             Car car1 = new Car("ABC123");
-            parkingLot.addParkingTicket(parkingLot.getEntrance("ENT1").getTicket(car1));
+            parkingLot.addParkingTicket(parkingLot.getEntrance("ENT1").getTicket(car1, "TICKET1"));
+            ParkingTicket parkingTicket = parkingLot.getParkingTicket("TICKET1");
+            // parkingTicket.setExiDate(LocalDateTime.now().plusHours(6));
+
+            parkingLot.getExit("EXT1").markExit(parkingTicket, parkingLot.getRate());
 
             return ResponseEntity.ok(parkingLot);
         } catch (Exception e) {
