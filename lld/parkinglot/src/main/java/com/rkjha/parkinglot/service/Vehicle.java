@@ -1,17 +1,23 @@
 package com.rkjha.parkinglot.service;
 
-abstract class Vehicle {
-    private String vehicleNumber;
+public abstract class Vehicle {
+    private String licenseNo;
+    private ParkingTicket ticket;
 
-    public Vehicle(String vehicleNumber) {
-        this.vehicleNumber = vehicleNumber;
+    public Vehicle(String lic) {
+        this.licenseNo = lic;
     }
 
-    public String getVehicleNumber() {
-        return vehicleNumber;
+    public String getLicenseNo() {
+        return licenseNo;
     }
 
-    public void setVehicleNumber(String vehicleNumber) {
-        this.vehicleNumber = vehicleNumber;
+    public void assignTicket(ParkingTicket t) {
+        this.ticket = t;
     }
+
+    public ParkingTicket getTicket() {
+        return ticket;
+    }
+
 }

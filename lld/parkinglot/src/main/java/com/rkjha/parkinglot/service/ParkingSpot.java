@@ -1,80 +1,32 @@
 package com.rkjha.parkinglot.service;
 
-public class ParkingSpot {
+public abstract class ParkingSpot {
 
-    private String id;
-    private String type;
-    private boolean isFree;
+    protected int id;
+    protected boolean isFree = true;
+    protected Vehicle vehicle;
 
-    public ParkingSpot(String id, String type, boolean isFree) {
+    public ParkingSpot(int id) {
         this.id = id;
-        this.type = type;
-        this.isFree = isFree;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public boolean isFree() {
         return isFree;
     }
 
-    public void setFree(boolean isFree) {
-        this.isFree = isFree;
+    public abstract boolean assignVehicle(Vehicle v);
+
+    public boolean removeVehicle() {
+        if (!isFree && vehicle != null) {
+            System.out.println("Slot " + id + " freed (was " + vehicle.getLicenseNo() + ")");
+            vehicle = null;
+            isFree = true;
+            return true;
+        }
+        return false;
     }
 
-}
-
-// Four types of parking spots as subclasses
-class Handicapped extends ParkingSpot {
-    public Handicapped(String id, String type, boolean isFree) {
-        super(id, type, isFree);
-    }
-
-    public boolean assignVehicle(Vehicle vehicle) {
-        /* ... */ return true;
-    }
-}
-
-class Compact extends ParkingSpot {
-    public Compact(String id, String type, boolean isFree) {
-        super(id, type, isFree);
-    }
-
-    public boolean assignVehicle(Vehicle vehicle) {
-        /* ... */ return true;
-    }
-}
-
-class Large extends ParkingSpot {
-    public Large(String id, String type, boolean isFree) {
-        super(id, type, isFree);
-    }
-
-    public boolean assignVehicle(Vehicle vehicle) {
-        /* ... */ return true;
-    }
-}
-
-class MotorcycleSpot extends ParkingSpot {
-    public MotorcycleSpot(String id, String type, boolean isFree) {
-        super(id, type, isFree);
-    }
-
-    public boolean assignVehicle(Vehicle vehicle) {
-        /* ... */ return true;
+    public int getId() {
+        return id;
     }
 }

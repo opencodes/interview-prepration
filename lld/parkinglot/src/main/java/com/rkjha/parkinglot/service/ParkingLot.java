@@ -3,116 +3,66 @@ package com.rkjha.parkinglot.service;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ParkingLot {
-    int id;
-    String name;
-    String address;
-    ParkingRate rate;
-    Map<String, Entrance> entrances = new HashMap<>();
-    Map<String, Exit> exits = new HashMap<>();
-    Map<String, ParkingSpot> parkingSpots = new HashMap<>();
-    Map<String, ParkingTicket> parkingTickets = new HashMap<>();
-    Map<String, DisplayBoard> displayBoards = new HashMap<>();
+import java.util.*;
 
-    private static ParkingLot instance;
+public class ParkingLot {
+    private static ParkingLot instance = null;
+    public ParkingRate rate = new ParkingRate();
+    private Map<Integer, ParkingSpot> spots = new LinkedHashMap<>();
+    private Map<Integer, ParkingTicket> tickets = new HashMap<>();
+    private List<DisplayBoard> boards = new ArrayList<>();
 
     private ParkingLot() {
-        // Private constructor to prevent instantiation
     }
 
     public static ParkingLot getInstance() {
-        if (instance == null) {
+        if (instance == null)
             instance = new ParkingLot();
-        }
         return instance;
     }
 
-    public ParkingTicket getParkingTicket(String ticketId) {
-        return this.parkingTickets.get(ticketId);
+    public void addSpot(ParkingSpot s) {
+        spots.put(s.getId(), s);
     }
 
-    public boolean isFull() {
-        return parkingSpots.isEmpty();
+    public void addDisplayBoard(DisplayBoard b) {
+        boards.add(b);
     }
 
-    public int getId() {
-        return id;
+    public ParkingSpot getSpot(int id) {
+        return spots.get(id);
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void freeSlot(int id) {
+        ParkingSpot s = spots.get(id);
+        if (s != null)
+            s.removeVehicle();
     }
 
-    public String getName() {
-        return name;
+    public Collection<ParkingSpot> getAllSpots() {
+        return spots.values();
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public ParkingTicket parkVehicle(Vehicle v) {
+        for (ParkingSpot s : spots.values()) {
+            if (s.isFree() && canFit(v, s)) {
+                s.assignVehicle(v);
+                ParkingTicket t = new ParkingTicket(s.getId(), v);
+                tickets.put(t.getTicketNo(), t);
+                return t;
+            }
+        }
+        System.out.println("Sorry, parking lot is full. New cars cannot be parked.");
+        return null;
     }
 
-    public String getAddress() {
-        return address;
+    private boolean canFit(Vehicle v, ParkingSpot s) {
+        if (v instanceof MotorCycle && s instanceof MotorcycleSpot)
+            return true;
+        if ((v instanceof Truck || v instanceof Van) && s instanceof Large)
+            return true;
+        if (v instanceof Car && (s instanceof Compact || s instanceof Handicapped))
+            return true;
+        return false;
     }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public ParkingRate getRate() {
-        return rate;
-    }
-
-    public void setRate(ParkingRate rate) {
-        this.rate = rate;
-    }
-
-    public Map<String, Entrance> getEntrances() {
-        return entrances;
-    }
-
-    public Entrance getEntrance(String entranceId) {
-        return this.entrances.get(entranceId);
-    }
-
-    public void addEntrance(Entrance entrance) {
-        this.entrances.put(String.valueOf(entrance.id), entrance);
-    }
-
-    public Map<String, Exit> getExits() {
-        return exits;
-    }
-
-    public Exit getExit(String id) {
-        return this.exits.get(id);
-    }
-
-    public void addExit(Exit exit) {
-        this.exits.put(String.valueOf(exit.id), exit);
-    }
-
-    public Map<String, ParkingSpot> getParkingSpots() {
-        return parkingSpots;
-    }
-
-    public void addParkingSpot(ParkingSpot parkingSpot) {
-        this.parkingSpots.put(String.valueOf(parkingSpot.getId()), parkingSpot);
-    }
-
-    public Map<String, ParkingTicket> getParkingTickets() {
-        return parkingTickets;
-    }
-
-    public void addParkingTicket(ParkingTicket parkingTicket) {
-        this.parkingTickets.put(parkingTicket.getId(), parkingTicket);
-    }
-
-    public Map<String, DisplayBoard> getDisplayBoards() {
-        return displayBoards;
-    }
-
-    public void addDisplayBoard(DisplayBoard displayBoard) {
-        this.displayBoards.put(displayBoard.id, displayBoard);
-    }
-
 }
