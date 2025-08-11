@@ -6,8 +6,18 @@ import java.util.List;
 import java.util.Map;
 
 public class DisplayBoard {
-    int id;
+    String id;
     Map<String, List<ParkingSpot>> parkingSpot;
+
+
+    public DisplayBoard(String id) {
+        this.id = id;
+        this.parkingSpot = new HashMap<>();
+    }
+    public String getId() {
+        return id;
+    }
+    
 
     public void addParkingSpot(List<ParkingSpot> parkingSpots, String vehicleType ) {
         this.parkingSpot.put(vehicleType, parkingSpots);

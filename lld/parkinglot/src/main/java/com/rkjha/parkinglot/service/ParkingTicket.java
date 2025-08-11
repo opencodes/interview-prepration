@@ -1,13 +1,15 @@
 package com.rkjha.parkinglot.service;
 
-import java.sql.Date;
+import java.sql.LocalDateTime;
+import java.time.LocalDateTime;
 
 import com.rkjha.parkinglot.model.enums.TicketStatus;
 
 public class ParkingTicket {
-    int ticketId;
-    Date entryDate;
-    Date exiDate;
+    String id;
+    //datetime for entry and exit
+    LocalDateTime entryDate;
+    LocalDateTime exiDate;
     double amount;
     TicketStatus status;
     Vehicle vehicle;
@@ -15,34 +17,35 @@ public class ParkingTicket {
     Entrance entrance;
     Exit exit;
 
-    public ParkingTicket(int ticketId, Date entryDate, Vehicle vehicle) {
-        this.ticketId = ticketId;
+    public ParkingTicket(String id, LocalDateTime entryDate, Vehicle vehicle, Entrance entrance) {
+        this.id = id;
         this.entryDate = entryDate;
         this.vehicle = vehicle;
         this.status = TicketStatus.INUSE; // Default status when created
+        this.entrance = entrance;
     }
 
-    public int getTicketId() {
-        return ticketId;
+    public String getId() {
+        return id;
     }
 
-    public void setTicketId(int ticketId) {
-        this.ticketId = ticketId;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Date getEntryDate() {
+    public LocalDateTime getEntryDate() {
         return entryDate;
     }
 
-    public void setEntryDate(Date entryDate) {
+    public void setEntryDate(LocalDateTime entryDate) {
         this.entryDate = entryDate;
     }
 
-    public Date getExiDate() {
+    public LocalDateTime getExiDate() {
         return exiDate;
     }
 
-    public void setExiDate(Date exiDate) {
+    public void setExiDate(LocalDateTime exiDate) {
         this.exiDate = exiDate;
     }
 
