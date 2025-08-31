@@ -65,6 +65,7 @@ Design Facebook Posts System
 
 - Peak Read QPS could hit 10–15 million+
 
+
 ✅ QPS Estimation Tips
 
 | Users       | 1 Action/User/Day | 10 Actions | 100 Actions |
@@ -75,6 +76,7 @@ Design Facebook Posts System
 | 1 Billion   | 11.5K QPS         | 115K QPS   | 1.15M QPS   |
 
 
+
 ✅ Billion ↔ Million ↔ Thousand Conversion Sheet
 
 | Unit               | Value         | In Millions | In Thousands |
@@ -82,6 +84,7 @@ Design Facebook Posts System
 | **1 Billion** (B)  | 1,000,000,000 | 1,000 M     | 1,000,000 K  |
 | **1 Million** (M)  | 1,000,000     | 1 M         | 1,000 K      |
 | **1 Thousand** (K) | 1,000         | 0.001 M     | 1 K          |
+
 
 ✅ Final Server Requirement Table (capacity = 64k req/s)
 
