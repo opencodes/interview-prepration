@@ -93,3 +93,19 @@ Design Facebook Posts System
 | **1 Million (1M/s)** | 1,000,000     | \~16 servers     |
 | **1 Billion (1B/s)** | 1,000,000,000 | \~15,625 servers |
 
+📊 Generic Bandwidth Conversion Table
+
+| Daily Data Volume | Per Day (Approx) | Per Second (Approx)  | Bandwidth (Approx)  |
+| ----------------- | ---------------- | -------------------- | ------------------- |
+| **1 KB/day**      | 1 KB             | 0.012 B/s            | Negligible          |
+| **1 MB/day**      | 1 MB             | 11.6 B/s             | Negligible          |
+| **100 MB/day**    | 100 MB           | 1,157 B/s ≈ 1.1 KB/s | 0.009 Mbps          |
+| **1 GB/day**      | 1 GB             | 11.6 KB/s            | 0.09 Mbps           |
+| **10 GB/day**     | 10 GB            | 116 KB/s             | 0.9 Mbps            |
+| **100 GB/day**    | 100 GB           | 1.16 MB/s            | 9 Mbps              |
+| **1 TB/day**      | 1 TB             | 11.6 MB/s            | 93 Mbps             |
+| **10 TB/day**     | 10 TB            | 116 MB/s             | 930 Mbps (\~1 Gbps) |
+| **100 TB/day**    | 100 TB           | 1.16 GB/s            | 9.3 Gbps            |
+| **1 PB/day**      | 1 PB             | 11.6 GB/s            | 93 Gbps             |
+
+
