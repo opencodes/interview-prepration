@@ -82,3 +82,11 @@ Design Facebook Posts System
 | **1 Billion** (B)  | 1,000,000,000 | 1,000 M     | 1,000,000 K  |
 | **1 Million** (M)  | 1,000,000     | 1 M         | 1,000 K      |
 | **1 Thousand** (K) | 1,000         | 0.001 M     | 1 K          |
+
+✅ Final Server Requirement Table (capacity = 64k req/s)
+
+| Load                 | Requests/sec  | Servers Needed   |
+| -------------------- | ------------- | ---------------- |
+| **1 Million (1M/s)** | 1,000,000     | \~16 servers     |
+| **1 Billion (1B/s)** | 1,000,000,000 | \~15,625 servers |
+
