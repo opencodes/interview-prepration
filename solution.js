@@ -1,29 +1,33 @@
 // ["ate", "eat", "tea", "nat", "tan", "bat"]
 
-function groupAnagram(array) {
-    if (!array || array.length == 0) {
-        return []
-    }
-    let hash = {};
-    let alphabetArr = new Array(26);
+function numberOfAtomsInChemical(str) {
+    let n = str.length - 1;
+    let output = {};
+    let i = 0;
 
-    for (let i = 0; i < array.length; i++) {
-        const el = array[i];
-        alphabetArr = alphabetArr.fill(0);
-        for (let j = 0; j < el.length; j++) {
-            alphabetArr[el[j].charCodeAt(0) - 'a'.charCodeAt(0)] = 1;
+    while (i < n) {
+        let char = str[i];
+        i++;
+
+        while (str[i] >= "a") {
+            char += str[i];
+            i++;
         }
-        let joinedStr = alphabetArr.join("");
 
-        if (!hash[joinedStr]) {
-            hash[joinedStr] = [];
+        let numStr = "";
+        while (parseInt(str[i], 10) > 0) {
+            numStr += str[i];
+            i++;
         }
-        hash[joinedStr].push(el);
+        output[char] = output[char] ? output[char] + 1 : parseInt(numStr, 10) || 1
     }
-    console.log(hash);
-
-    return Object.values(hash)
+    return output;
 }
-let input = ["ate", "eat", "tea", "nat", "tan", "bat"];
-let ans = groupAnagram(input);
-console.log("Answer for given array", input, " is ", ans);
+let inputs = ["NaCl", "H2SO4", "C12H12O22"]
+inputs.forEach(input => {
+    let ans = numberOfAtomsInChemical(input);
+    console.log("Answer for given input", input, " is ", ans);
+})
+
+systemdesignconcept
+systemdesignconcepts
