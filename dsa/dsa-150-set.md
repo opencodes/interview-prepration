@@ -1,7 +1,39 @@
 ### 150 DSA Questions
- - 1 Contains Duplicate, 2 Valid Anagram
- - 3 Two Sum, 4 Group Anagrams
+#### 1. Contains Duplicate, 2 Valid Anagram
+#### 3. Two Sum, 4 Group Anagrams
+ ```
+ function groupAnagram(array) {
+    if (!array || array.length == 0) {
+        return []
+    }
+    let hash = {};
+    let alphabetArr = new Array(26);
+
+    for (let i = 0; i < array.length; i++) {
+        const el = array[i];
+        alphabetArr = alphabetArr.fill(0);
+        for (let j = 0; j < el.length; j++) {
+            alphabetArr[el[j].charCodeAt(0) - 'a'.charCodeAt(0)] = 1;
+        }
+        let joinedStr = alphabetArr.join("");
+
+        if (!hash[joinedStr]) {
+            hash[joinedStr] = [];
+        }
+        hash[joinedStr].push(el);
+    }
+    console.log(hash);
+
+    return Object.values(hash)
+}
+let input = ["ate", "eat", "tea", "nat", "tan", "bat"];
+let ans = groupAnagram(input);
+console.log("Answer for given array", input, " is ", ans);
+```
  - 5 Top K Frequent Elements, 6 Product of Array Except Self
+ ```
+ 
+ ```
  - 7 Valid Sudoku, 8 Encode and Decode Strings
  - 9 Longest Consecutive Sequence, 10 Valid Palindrome
  - 11 Two Sum II Input Array Is Sorted, 12 3Sum
