@@ -1,55 +1,47 @@
-// Definition for a Linked List node
-class ListNode {
-    int val;
-    ListNode next;
-
-    // Constructor
-    public ListNode(int val) {
-        this.val = val;
-        this.next = null;
-    }
-}
+import java.util.ArrayList;
+import java.util.List;
 
 public class Solution {
-    public static int countCycleLength(ListNode head) {
-        ListNode slow = head;
-        ListNode fast = head;
 
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-            System.out.println("Slow: " + slow.val + ", Fast: " + fast.val);
-            if (slow == fast) {
-                // Step 2: Calculate cycle length
-                return getLength(slow);
+    private void dfs(int start, int[] visited, List<List<Integer>> adjList){
+        visited[start] = 1;
+        List<Integer> neighList = adjList.get(start);
+        for (int i = 0; i < neighList.size(); i++) {
+            int neighbour = neighList.get(i);
+            if (visited[neighbour]!=1) {
+                dfs(neighbour,  visited, adjList);
             }
         }
-
-        return 0;
     }
-
-    private static int getLength(ListNode nodeInCycle) {
-        int length = 1;
-        ListNode current = nodeInCycle.next;
-
-        while (current != nodeInCycle) {
-            current = current.next;
-            length++;
+    
+    public int solve(int A, int[][] B) {
+        List<List<Integer>> adjList = new ArrayList<>();
+        
+        for (int i = 0; i <= A; i++) {
+            adjList.add(new ArrayList<Integer>());
+        }
+        // Build adjacency list
+        for (int i = 0; i < B.length; i++) {
+            int startNode = B[i][0];
+            int endNode = B[i][1];
+            adjList.get(startNode).add(endNode);
         }
 
-        return length;
+        int[] visited = new int[adjList.size()]; 
+        dfs(1,   visited, adjList);
+        System.out.println(adjList);
+
+        return visited[A];
     }
 
     public static void main(String[] args) {
-        // 2,4,6,8,10
-        ListNode head = new ListNode(2);
-        head.next = new ListNode(4);
-        head.next.next = new ListNode(6);
-        head.next.next.next = new ListNode(8);
-        head.next.next.next.next = new ListNode(10);
-        head.next.next.next.next.next = head.next; // Creating a cycle (10 -> 4)
+        int A = 2;
+        int[][]  B = { 
+            {1, 2}
+        };
 
-        int cycleLength = countCycleLength(head);
-        System.out.println("Cycle Length: " + cycleLength); // Output: Cycle Length: 3
+        Solution solution = new Solution();
+        int result = solution.solve(A, B);
+        System.out.println("Output: " + result);
     }
 }
