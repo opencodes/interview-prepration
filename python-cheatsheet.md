@@ -391,4 +391,53 @@ with MyContext():
 ```
  
  
+
+## 18. **Object Serialization / Deserialization**
+
+### Using `pickle` (Python objects → bytes)
+
+```python
+import pickle
+
+# Serialize (object → bytes)
+data = {"name": "Alice", "age": 25, "skills": ["Python", "DSA"]}
+serialized = pickle.dumps(data)
+
+# Deserialize (bytes → object)
+restored = pickle.loads(serialized)
+print(restored)  # {'name': 'Alice', 'age': 25, 'skills': ['Python', 'DSA']}
+
+# Save to file
+with open("data.pkl", "wb") as f:
+    pickle.dump(data, f)
+
+# Load from file
+with open("data.pkl", "rb") as f:
+    obj = pickle.load(f)
+```
+
+---
+
+### Using `json` (for cross-language compatibility)
+
+```python
+import json
+
+# Serialize (object → JSON string)
+person = {"name": "Bob", "age": 30, "skills": ["Java", "DSA"]}
+json_str = json.dumps(person)
+
+# Deserialize (JSON string → object)
+obj = json.loads(json_str)
+print(obj)   # {'name': 'Bob', 'age': 30, 'skills': ['Java', 'DSA']}
+
+# Save to file
+with open("data.json", "w") as f:
+    json.dump(person, f)
+
+# Load from file
+with open("data.json", "r") as f:
+    obj = json.load(f)
+```
+
  
