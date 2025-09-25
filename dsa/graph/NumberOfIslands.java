@@ -13,8 +13,8 @@ public class NumberOfIslands {
         grid[r][c] = 0; // mark visited
 
         // 8 directions
-        int[] dr = {-1, -1, -1, 0, 0, 1, 1, 1};
-        int[] dc = {-1, 0, 1, -1, 1, -1, 0, 1};g
+        int[] dr = { -1, -1, -1, 0, 0, 1, 1, 1 };
+        int[] dc = { -1, 0, 1, -1, 1, -1, 0, 1 };
         for (int i = 0; i < 8; i++) {
             dfs(r + dr[i], c + dc[i], grid, rows, cols);
         }
@@ -54,10 +54,10 @@ public class NumberOfIslands {
                         { 1, 0, 1, 0, 1 }
 
                 },
-                 {
-                    { 0, 0, 1, 0, 1, 0, 1, 1, 1 },
-                    { 0, 1, 0, 0, 1, 1, 1, 0, 1 }
-            }
+                {
+                        { 0, 0, 1, 0, 1, 0, 1, 1, 1 },
+                        { 0, 1, 0, 0, 1, 1, 1, 0, 1 }
+                }
         };
         for (int i = 0; i < testCases.length; i++) {
             int[][] A = testCases[i];
