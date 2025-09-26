@@ -1,3 +1,5 @@
+const {  } = require('@datastructures-js/priority-queue');
+
 function toCamelClassCase(str) {
     return str
         .replace(/[^a-zA-Z0-9_]+/g, ' ') // allow underscores, don't replace them
