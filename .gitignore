@@ -172,3 +172,8 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# nested node_modules
+**/node_modules/
+node_modules
+dsa/node_modules/
