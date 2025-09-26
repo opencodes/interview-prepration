@@ -1,25 +1,18 @@
 package dsa.graph;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class NumberOfIslands {
-
+public class Q3_NumberOfIslands {
     private void dfs(int r, int c, int[][] grid, int rows, int cols) {
         if (r < 0 || c < 0 || r >= rows || c >= cols)
             return;
         if (grid[r][c] != 1)
             return;
-        grid[r][c] = 0; // mark visited
-
-        // 8 directions
+        grid[r][c] = 0;
         int[] dr = { -1, -1, -1, 0, 0, 1, 1, 1 };
         int[] dc = { -1, 0, 1, -1, 1, -1, 0, 1 };
         for (int i = 0; i < 8; i++) {
             dfs(r + dr[i], c + dc[i], grid, rows, cols);
         }
     }
-
     public int solve(int[][] grid) {
         if (grid.length == 0)
             return 0;
@@ -35,10 +28,8 @@ public class NumberOfIslands {
         }
         return count;
     }
-
     public static void main(String[] args) {
-        NumberOfIslands solution = new NumberOfIslands();
-
+        Q3_NumberOfIslands solution = new Q3_NumberOfIslands();
         int[][][] testCases = {
                 {
                         { 0, 1, 0 },

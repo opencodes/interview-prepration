@@ -1,19 +1,24 @@
 package dsa.graph;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
-public class RottenOranges {
+public class Q4_RottenOranges {
+    public void printQueue(Queue<int[]> queue) {
+        System.out.println("Queue: ");
+        for (int[] node : queue) {
+            System.out.print("(" + node[0] + "," + node[1] + "), ");
+        }
+        System.out.println("QueueEND");
+    }
 
     public int solve(int[][] A) {
         Queue<int[]> queue = new LinkedList<>();
         int m = A.length;
         int n = A[0].length;
+        System.out.println("m: " + m + ", n: " + n);
         int freshCount = 0;
         int count = 0;
-
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (A[i][j] == 2) {
@@ -27,45 +32,41 @@ public class RottenOranges {
             return -1;
         }
         int[][] dirs = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
-        System.err.println(queue.size());
         while (!queue.isEmpty()) {
-
             boolean rooted = false;
-
-            for (int k = 0; k < queue.size(); k++) {
+            int size = queue.size();
+            for (int k = 0; k < size; k++) {
                 int[] node = queue.poll();
                 int i = node[0];
                 int j = node[1];
                 for (int[] dir : dirs) {
                     int ni = i + dir[0];
                     int nj = j + dir[1];
-                    System.err.println("ni " + ni + "---- nj" + nj);
-                    if (ni >= 0 && nj >= 0 && ni < m && nj < m && A[ni][nj] == 1) {
+                    if (ni >= 0 && nj >= 0 && ni < m && nj < n && A[ni][nj] == 1) {
                         A[ni][nj] = 2;
                         queue.add(new int[] { ni, nj });
                         freshCount--;
                         rooted = true;
-                        System.out.println(ni + "--" + nj);
                     }
                 }
             }
             if (rooted) {
-                System.out.println("count:" + count);
                 count++;
             }
-
         }
         return freshCount == 0 ? count : -1;
     }
 
     public static void main(String[] args) {
-        RottenOranges solution = new RottenOranges();
+        Q4_RottenOranges solution = new Q4_RottenOranges();
         int[][][] testCases = {
-                {
-                        { 2, 1, 1 },
-                        { 1, 1, 0 },
-                        { 0, 1, 1 }
-                }
+                { 
+                { 0, 2, 1 }, 
+                { 2, 2, 1 }, 
+                { 0, 1, 0 }, 
+                { 2, 1, 1 }, 
+                { 0, 1, 1 }, 
+                { 1, 2, 1 } }
         };
         for (int i = 0; i < testCases.length; i++) {
             int[][] A = testCases[i];
