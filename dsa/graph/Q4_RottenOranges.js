@@ -42,53 +42,74 @@ Output 2:
 //param A : integer
 //param B : array of array of integers
 //return an integer
-function bfs(adj, visited, queue) {
+
+function solve(A) {
+	const m = A.length;
+	const n = A[0].length;
+	const queue = new Queue();
+	let freshOranges = 0;
+	//Create adj metrics
+	for (let i = 0; i < m; i++) {
+		for (let j = 0; j < n; j++) {
+			if (A[i][j] == 2) {
+				queue.push([i, j])
+			}
+			if (A[i][j] == 1) {
+				freshOranges++;
+			}
+		}
+	}
+	if (freshOranges == 0) {
+		return 0;
+	}
+	let numOfMin = 0;
+	let isRotten = false;
 	if (queue.isEmpty()) {
 		return;
 	}
 	while (!queue.isEmpty()) {
 		const [i, j] = queue.pop();
-		if (visited[i] == 1) {
-			visited[i] = 2;
+		//If current orange is fresh, make it rotten
+		if (A[i][j] == 1) {
+			A[i][j] = 2;
 		}
-		const neighbours = adj[i];
-		neighbours.forEach(neighbour => {
-			const [i, j] = neighbour;
-			if (A[i][j] == 1) {
-				queue.push([i, j])
+		const dirs = [[0, 1], [1, 0], [-1, 0], [0, -1]];
+		dirs.forEach(dir => {
+			const ni = i + dir[0];
+			const nj = j + dir[1];
+			//Check for valid index
+			if (ni >= 0 && ni < A.length && nj >= 0 && nj < A[0].length) {
+				const n = A[ni][nj];
+				//If fresh orange found, make it rotten and add to queue
+				if (n == 1) {
+					A[ni][nj] = 2;
+					isRotten = true;
+					queue.push([ni, nj]);
+				}
 			}
 		});
-		numOfMin++;
+		if (isRotten) {
+			isRotten = false;
+			numOfMin++;
+		}
 	}
-}
-function solve(A) {
-	const m = A.length;
-	const n = A[0].length;
-	let numOfMin = 0;
-	const adjList = new Array(m).fill(0).map(m => [])
-	const queue = new Queue();
-	//Create adj metrics
-	for (let i = 0; i < m; i++) {
-		for (let j = 0; j < n; j++) {
-			if (A[i][j] != 0) {
-				adjList[i].push(j)
-			}
-			if (A[i][j] == 2) {
-				queue.push(i)
+	//Check if any fresh orange is left
+	for (let i = 0; i < A.length; i++) {
+		for (let j = 0; j < A[0].length; j++) {
+			if (A[i][j] == 1) {
+				return -1;
 			}
 		}
 	}
-	const visited = new Array(m).fill(0);
-	console.log(queue);
-	// bfs(A, adjList, visited, queue);
+	// console.log("A", A, "q ", queue.toArray());
 	return numOfMin;
 }
 
 // Example Input
 let A = [
 	[2, 1, 1],
-	[1, 1, 0],
-	[0, 1, 1]
+	[0, 1, 1],
+	[1, 0, 1]
 ]
 console.log("Q.", "Rotten Oranges");
 console.log("Input: ", A);
