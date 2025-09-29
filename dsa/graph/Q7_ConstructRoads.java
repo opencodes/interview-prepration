@@ -1,3 +1,5 @@
+package dsa.graph;
+
 import java.util.*;
 
 public class Q7_ConstructRoads {
@@ -11,60 +13,62 @@ public class Q7_ConstructRoads {
         }
         for (int i = 0; i < B.length; i++) {
             adjList.get(B[i][0]).add(B[i][1]);
-            // adjList.get(B[i][1]).add(B[i][0]);
+            adjList.get(B[i][1]).add(B[i][0]);
         }
         int[] colors = new int[A + 1];
         Arrays.fill(colors, -1);
         int countColorZero = 0;
         int countColorOne = 0;
-        System.out.println(adjList);
+        // System.out.println(adjList);
+        // System.out.println(Arrays.toString(colors));
         // For all nodes
         for (int i = 1; i <= A; i++) {
             // if not colored
             if (colors[i] == -1) {
+
                 Queue<Integer> queue = new LinkedList<>();
                 queue.add(i);
+
+                colors[i] = 0;
+                countColorZero++;
+
                 while (!queue.isEmpty()) {
                     int qSize = queue.size();
-                    System.out.println("qSize  " + qSize);
+                    // System.out.println("qSize " + qSize);
                     for (int j = 0; j < qSize; j++) {
                         int queueItem = queue.poll();
-
                         List<Integer> neighbours = adjList.get(queueItem);
-                        if (colors[queueItem] != -1) {
-                            colors[i] = 0;
-                            countColorZero++;
-                        }
-                        for (Integer neighbour : neighbours) {
-                            int c = 1 - colors[i];
-                            if (colors[neighbour] != c) {
-                                if (colors[neighbour] == -1) {
-                                    if (c == 1) {
-                                        countColorOne++;
-                                    }
-                                    if (c == 0) {
-                                        countColorZero++;
-                                    }
-                                    colors[neighbour] = c;
-                                    queue.add(neighbour);
-                                }
+                        // System.out.println(Arrays.toString(colors));
+                        // System.out.println("queueItem " + queueItem + " neighbours " + neighbours);
 
+                        for (Integer neighbour : neighbours) {
+                            if (colors[neighbour] == -1) {
+                                colors[neighbour] = 1 - colors[queueItem];
+                                queue.add(neighbour);
+                                if (colors[neighbour] == 0) {
+                                    countColorZero++;
+                                } else {
+                                    countColorOne++;
+                                }
                             }
                         }
                     }
                 }
             }
         }
+        final int MOD = 1000000007;
+        // System.out.println("Max edge possible " + maxEdge);
+        // System.out.println(countColorZero + " - " + countColorOne);
+        // System.out.println(Arrays.toString(colors));
+        long maxEdge = 1L * countColorOne * countColorZero; // avoid overflow
+        long result = maxEdge - B.length;
 
-        int maxEdge = countColorOne * countColorZero;
-        System.out.println(countColorZero + " - " + countColorOne);
-        System.out.println(Arrays.toString(colors));
-        return maxEdge - B.length;
+        return (int) ((result % MOD + MOD) % MOD);
     }
 
     public static void main(String[] args) {
-        int A = 5;
-        int[][] B = { { 1, 3 }, { 1, 4 }, { 3, 2 }, { 3, 5 } };
+        int A = 2;
+        int[][] B = { { 2, 1 } };
         Q7_ConstructRoads solution = new Q7_ConstructRoads();
         System.out.println("Input :");
         System.out.println(" - A: " + A);
