@@ -1,5 +1,3 @@
-package dsa.graph;
-
 import java.util.*;
 
 public class Q7_ConstructRoads {
