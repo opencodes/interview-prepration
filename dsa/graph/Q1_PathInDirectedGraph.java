@@ -1,5 +1,3 @@
-package dsa.graph;
-
 import java.util.*;
 
 /**
@@ -45,7 +43,6 @@ class Q1_PathInDirectedGraph {
 		for (int[] edge : B) {
 			graph.get(edge[0]).add(edge[1]);
 		}
-
 		// Perform DFS to check if there's a path from node 1 to node A
 		boolean[] visited = new boolean[A + 1];
 		return dfs(graph, visited, 1, A) ? 1 : 0;

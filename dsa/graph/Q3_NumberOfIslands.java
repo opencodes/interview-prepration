@@ -1,5 +1,3 @@
-package dsa.graph;
-
 /**
  * Q. Number of islands
  * Given a matrix of integers A of size N x M consisting of 0 and 1.

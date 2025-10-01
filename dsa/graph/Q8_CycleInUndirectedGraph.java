@@ -1,8 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class Q8_CycleInUndirectedGraph {
     public boolean bfs(int start, List<List<Integer>> adjList, boolean[] visited) {
