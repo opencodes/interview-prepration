@@ -1,3 +1,4 @@
+package dsa.graph;
 
 /**
  * Q. Number of islands
