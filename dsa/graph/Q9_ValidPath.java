@@ -43,20 +43,15 @@ public class Q9_ValidPath {
     }
 
     public static void main(String[] args) {
-        int x = 3, y = 3, N = 1, R = 1;
-        ArrayList<Integer> A = new ArrayList<>();
-        A.add(0);
-        ArrayList<Integer> B = new ArrayList<>();
-        B.add(3);
-        Q9_ValidPath solution = new Q9_ValidPath();
 
-        System.out.println("Input :");
-        System.out.println(" - x: " + x);
-        System.out.println(" - y: " + y);
-        System.out.println(" - N: " + N);
-        System.out.println(" - R: " + R);
-        System.out.println(" - A: " + A);
-        System.out.println(" - B: " + B);
-        System.out.println(solution.solve(x, y, N, R, A, B)); // Output: 0
+        int A = 3;
+        int B = 3;
+        int C = 1;
+        int D = 1;
+        int[] E = { 0 };
+        int[] F = { 3 };
+        Q9_ValidPath solution = new Q9_ValidPath();
+        String result = solution.solve(A, B, C, D, E, F);
+        System.out.println("ValidPath : " + result);
     }
 }
