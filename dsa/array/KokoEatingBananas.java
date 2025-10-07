@@ -23,14 +23,13 @@ import java.util.Map;
 public class KokoEatingBananas {
 
     public int solution(int n, String piles, int h) {
-        int low = Integer.MAX_VALUE;
+        int low = 1;
         int high = Integer.MIN_VALUE;
         int[] pilesCountArr = new int[n];
         int index = 0;
         for (String s : piles.split(" ")) {
             pilesCountArr[index] = Integer.valueOf(s);
             high = Math.max(high, Integer.valueOf(s));
-            low = Math.min(low, Integer.valueOf(s));
             index++;
         }
         System.out.println("Low: " + low + " High: " + high);
