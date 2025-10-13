@@ -36,12 +36,15 @@ public class KokoEatingBananas {
 
         while (low < high) {
             int mid = low + (high - low) / 2;
+            boolean canFinish = canFinish(pilesCountArr, h, mid);
+            System.out.println("Low: " + low + " High: " + high + " mid: " + mid + " canFinish " + canFinish);
 
-            if (canFinish(pilesCountArr, h, mid)) {
+            if (canFinish) {
                 high = mid; // try smaller k
             } else {
                 low = mid + 1; // need faster speed
             }
+
         }
         return low;
     }
@@ -56,6 +59,6 @@ public class KokoEatingBananas {
 
     public static void main(String[] args) {
         KokoEatingBananas obj = new KokoEatingBananas();
-        System.out.println(obj.solution(3, "5 10 3", 4)); // Output: 5
+        System.out.println(obj.solution(4, "3 6 7 11", 8)); // Output: 5
     }
 }
