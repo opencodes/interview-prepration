@@ -50,7 +50,6 @@ operations.forEach(o => {
         default:
             break;
     }
-    console.log("===> stack: ", obj.stack_arr, "minStack: ", obj.minStack());
 })
 
 
