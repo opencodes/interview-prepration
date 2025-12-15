@@ -62,11 +62,44 @@ export class LinkedListUtil {
         }
         return curr
     }
-
     reverseSegment(head: ListNode | null, from: number, to: number) {
-        let prev: ListNode | null = null
-        let curr: ListNode
-        //reach till from
+        if (!head || !head.next) {
+            return head
+        }
+        let prev: ListNode | null = new ListNode(0, head)
+        let curr: ListNode | null = head;
+        let next: ListNode | null = head;
+        //reach till before from - 2-1
+        for (let i = 1; i < from; i++) {
+            prev = prev!.next
+            curr = curr!.next
+        }
+        next = curr
+        // move next to post segment
+        for (let i = 1; i < to - from + 1; i++) {
+            if (next) {
+                next = next!.next
+            }
+        }
+        let temp = next!.next;
+        next!.next = null
+        let reversedSegmentLinkedList = this.reverseLinkedList(curr)
+        // r.next = next
+        if (prev) {
+            prev.next = reversedSegmentLinkedList
+        }
+        //go to end reverse list
+        let r: ListNode | null = prev
+        while (r && r.next) {
+            r = r.next
+        }
+        if (r) {
+            r.next = temp
+        }
+        return prev
+    }
+
+    reverseInAgroup(head: ListNode | null, k: number) {
 
     }
 
