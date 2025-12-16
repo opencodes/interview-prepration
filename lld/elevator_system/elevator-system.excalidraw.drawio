@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.7">
+  <diagram name="Page-1" id="b1R0eb_G_doRB3N0bfNH">
+    <mxGraphModel dx="1537" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fX01RNkxV_RRMHuVqLqC-3" parent="1" style="text;whiteSpace=wrap;fontFamily=Comic Sans MS;fontStyle=1;fontSize=30;align=center;verticalAlign=middle;labelPosition=center;verticalLabelPosition=middle;" value="Elevator System" vertex="1">
+          <mxGeometry height="40" width="260" x="260" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fX01RNkxV_RRMHuVqLqC-4" parent="1" style="text;whiteSpace=wrap;fontSize=16;fontFamily=Comic Sans MS;fillColor=#fff2cc;strokeColor=#d6b656;" value="Elevator&#xa;- configure no of floor&#xa;- state&#xa;    - up&#xa;    - down&#xa;    - maintenance&#xa;    - idle&#xa;- open door only when idle&#xa;- auto- close after configurable timeout, &#xa;unless open button pressed&#xa;- buttons for each floor, open, close, emergency-stop&#xa;- display showing current floor, direction, load status&#xa;- audio signal on overload, emergency&#xa;- support multiple floor request in same and opposite direction&#xa;- support maintenance state and&#xa;    - remove car from normal display&#xa;    - no new req assigned&#xa;    - all elevator door remain closed&#xa;    - on exit maintenance back to normal" vertex="1">
+          <mxGeometry height="480" width="360" x="80" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="fX01RNkxV_RRMHuVqLqC-5" parent="1" style="text;whiteSpace=wrap;fontSize=24;fontFamily=Comic Sans MS;" value="Functional Requirement" vertex="1">
+          <mxGeometry height="40" width="280" x="80" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="fX01RNkxV_RRMHuVqLqC-6" parent="1" style="text;whiteSpace=wrap;fontSize=16;fontFamily=Comic Sans MS;fillColor=#fff2cc;strokeColor=#d6b656;" value="Building&#xa;- configure no of elevator" vertex="1">
+          <mxGeometry height="160" width="280" x="480" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="fX01RNkxV_RRMHuVqLqC-7" parent="1" style="text;whiteSpace=wrap;fontSize=16;fontFamily=Comic Sans MS;fillColor=#fff2cc;strokeColor=#d6b656;" value="Central Controller&#xa;- assign elevator for each floor call request&#xa;- move command to elevator" vertex="1">
+          <mxGeometry height="120" width="280" x="480" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="fX01RNkxV_RRMHuVqLqC-8" parent="1" style="text;whiteSpace=wrap;fontSize=16;fontFamily=Comic Sans MS;fillColor=#fff2cc;strokeColor=#d6b656;" value="Floor Panel&#xa;- button with Up/Down&#xa;- Display elevator current floor" vertex="1">
+          <mxGeometry height="120" width="280" x="480" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="fX01RNkxV_RRMHuVqLqC-9" parent="1" style="text;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;fontFamily=Comic Sans MS;" value="- All internal/external displays and indicator shall update in real time to reflect current floor, direction, operational state&#xa;- system shall communicate all operational states, errors, and safety messages to users via audio/visual indicator and displays," vertex="1">
+          <mxGeometry height="100" width="680" x="80" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="fX01RNkxV_RRMHuVqLqC-10" parent="1" style="text;whiteSpace=wrap;fontSize=24;fontFamily=Comic Sans MS;" value="Functional Requirement" vertex="1">
+          <mxGeometry height="40" width="280" x="80" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="fX01RNkxV_RRMHuVqLqC-14" parent="1" style="text;whiteSpace=wrap;fontSize=24;fontFamily=Comic Sans MS;" value="Usecase Diagram" vertex="1">
+          <mxGeometry height="40" width="280" x="80" y="1200" as="geometry" />
+        </mxCell>
+        <mxCell id="fX01RNkxV_RRMHuVqLqC-15" parent="1" style="text;whiteSpace=wrap;fontSize=16;fontFamily=Comic Sans MS;fillColor=#fff2cc;strokeColor=#d6b656;" value="System&#xa;&#xa;- Physical Elevator&#xa;- Floor and Elevator Panel&#xa;- Central Controller" vertex="1">
+          <mxGeometry height="160" width="680" x="80" y="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="fX01RNkxV_RRMHuVqLqC-18" parent="1" style="text;whiteSpace=wrap;fontSize=16;fontFamily=Comic Sans MS;fillColor=#fff2cc;strokeColor=#d6b656;" value="Actors&#xa;&#xa;- Primary Actors&#xa;    - Passanger&#xa;        - Call the elevator from any floor by pressing Up/Down buttons on the floor panel&#xa;        - Select a destination floor using in-car panel&#xa;        - Request to open or close the door via the open and close button in-car panel&#xa;        - Trigger Emergency stop by pressing emergency button in-car panel&#xa;- Secondary Actors&#xa;    - Operator&#xa;&#xa;        - Enter maintenance mode for a selected car, update display, ignore request&#xa;&#xa;        - Exit maintenance mode&#xa;&#xa;        - Receive alert for emergency&#xa;&#xa;" vertex="1">
+          <mxGeometry height="360" width="680" x="80" y="1480" as="geometry" />
+        </mxCell>
+        <mxCell id="fX01RNkxV_RRMHuVqLqC-19" parent="1" style="text;whiteSpace=wrap;fontSize=16;fontFamily=Comic Sans MS;fillColor=#fff2cc;strokeColor=#d6b656;" value="Use cases&#xa;&#xa;- Passanger&#xa;    - Call elevator&#xa;    - Select Destination Floor&#xa;    - Request to open/close door&#xa;    - Trigger emergency stop&#xa;&#xa;- Elevator control system&#xa;    - Move/Stop elevator&#xa;    - Dispatch elevator&#xa;    - Update display(Inside/Outside)&#xa;    - Detect overload sign alarm&#xa;    - Notify operator&#xa;&#xa;&#xa;- Operator&#xa;    - Enter maintenance mode&#xa;    - Exit maintenance mode&#xa;    - Acknowledge/resolve alerts&#xa;&#xa;&#xa;" vertex="1">
+          <mxGeometry height="440" width="680" x="80" y="1880" as="geometry" />
+        </mxCell>
+        <mxCell id="fX01RNkxV_RRMHuVqLqC-21" parent="1" style="text;whiteSpace=wrap;fontSize=16;fontFamily=Comic Sans MS;fillColor=#fff2cc;strokeColor=#d6b656;" value="System&#xa;&#xa;- Physical Elevator&#xa;- Floor and Elevator Panel&#xa;- Central Controller" vertex="1">
+          <mxGeometry height="160" width="680" x="80" y="2400" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
