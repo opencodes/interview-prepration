@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.7">
   <diagram name="Page-1" id="b1R0eb_G_doRB3N0bfNH">
-    <mxGraphModel dx="961" dy="551" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1366" dy="783" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -455,25 +455,25 @@
           <mxGeometry height="40" width="440" x="80" y="7660" as="geometry" />
         </mxCell>
         <mxCell id="BMzvGQqT89yn5r7YiNup-26" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;" value="" vertex="1">
-          <mxGeometry height="300" width="20" x="90" y="7800" as="geometry" />
+          <mxGeometry height="480" width="20" x="90" y="7800" as="geometry" />
         </mxCell>
         <mxCell id="BMzvGQqT89yn5r7YiNup-27" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Comic Sans MS;" value="Passanger" vertex="1">
           <mxGeometry height="30" width="60" x="70" y="7760" as="geometry" />
         </mxCell>
         <mxCell id="BMzvGQqT89yn5r7YiNup-28" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlEntity;fontFamily=Comic Sans MS;" value="Hall Button" vertex="1">
-          <mxGeometry height="350" width="150" x="140" y="7760" as="geometry" />
+          <mxGeometry height="520" width="150" x="140" y="7760" as="geometry" />
         </mxCell>
         <mxCell id="BMzvGQqT89yn5r7YiNup-29" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlEntity;fontFamily=Comic Sans MS;" value="&lt;span style=&quot;font-family: Helvetica;&quot;&gt;Elevator System&lt;/span&gt;" vertex="1">
-          <mxGeometry height="350" width="150" x="295" y="7760" as="geometry" />
+          <mxGeometry height="520" width="150" x="295" y="7760" as="geometry" />
         </mxCell>
         <mxCell id="BMzvGQqT89yn5r7YiNup-30" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlEntity;fontFamily=Comic Sans MS;" value="&lt;span style=&quot;font-family: Helvetica;&quot;&gt;Dispatcher System&lt;/span&gt;" vertex="1">
-          <mxGeometry height="350" width="150" x="450" y="7760" as="geometry" />
+          <mxGeometry height="520" width="150" x="450" y="7760" as="geometry" />
         </mxCell>
         <mxCell id="BMzvGQqT89yn5r7YiNup-31" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlEntity;fontFamily=Comic Sans MS;" value="&lt;span style=&quot;font-family: Helvetica;&quot;&gt;Elevator Car&lt;/span&gt;" vertex="1">
-          <mxGeometry height="350" width="150" x="610" y="7760" as="geometry" />
+          <mxGeometry height="520" width="150" x="610" y="7760" as="geometry" />
         </mxCell>
         <mxCell id="BMzvGQqT89yn5r7YiNup-32" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlEntity;fontFamily=Comic Sans MS;" value="&lt;span style=&quot;font-family: Helvetica;&quot;&gt;Door&lt;/span&gt;" vertex="1">
-          <mxGeometry height="350" width="150" x="780" y="7760" as="geometry" />
+          <mxGeometry height="520" width="150" x="780" y="7760" as="geometry" />
         </mxCell>
         <mxCell id="BMzvGQqT89yn5r7YiNup-33" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="BMzvGQqT89yn5r7YiNup-28" value="Press">
           <mxGeometry relative="1" width="80" as="geometry">
@@ -505,10 +505,46 @@
             <mxPoint x="682.5" y="8000" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BMzvGQqT89yn5r7YiNup-38" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=none;curved=0;rounded=0;startArrow=block;startFill=1;endFill=0;" value="selectBestCar()">
+        <mxCell id="BMzvGQqT89yn5r7YiNup-38" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=none;curved=0;rounded=0;startArrow=block;startFill=1;endFill=0;" value="returnCar()">
           <mxGeometry relative="1" width="80" as="geometry">
             <mxPoint x="370" y="8030" as="sourcePoint" />
             <mxPoint x="527.5" y="8030" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BMzvGQqT89yn5r7YiNup-39" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;startArrow=none;startFill=0;" value="moveToFloor()">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="370" y="8060" as="sourcePoint" />
+            <mxPoint x="530" y="8060" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BMzvGQqT89yn5r7YiNup-40" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;startArrow=none;startFill=0;" target="BMzvGQqT89yn5r7YiNup-32" value="openDoor()">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="370" y="8109.26" as="sourcePoint" />
+            <mxPoint x="530" y="8109.26" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BMzvGQqT89yn5r7YiNup-41" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=none;curved=0;rounded=0;startArrow=block;startFill=1;endFill=0;dashed=1;" value="returnCar()">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="370" y="8090" as="sourcePoint" />
+            <mxPoint x="527.5" y="8090" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BMzvGQqT89yn5r7YiNup-42" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=none;curved=0;rounded=0;startArrow=block;startFill=1;dashed=1;endFill=0;" value="doorOpen()">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="370" y="8140" as="sourcePoint" />
+            <mxPoint x="530" y="8140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BMzvGQqT89yn5r7YiNup-43" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=none;curved=0;rounded=0;endFill=0;startArrow=classic;startFill=1;" value="carArrived()">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="215" y="8170" as="sourcePoint" />
+            <mxPoint x="370" y="8170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BMzvGQqT89yn5r7YiNup-44" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=none;curved=0;rounded=0;startArrow=block;startFill=1;endFill=0;" value="UnPress">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="102.5" y="8200" as="sourcePoint" />
+            <mxPoint x="217.5" y="8200" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
